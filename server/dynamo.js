@@ -7,6 +7,13 @@ const client = new aws.DynamoDB.DocumentClient({
   params: {
     TableName: process.env.TABLE_NAME,
   },
+  httpOptions: {
+    agent: new https.Agent({
+      rejectUnauthorized: true,
+      secureProtocol: "TLSv1_method",
+      ciphers: "ALL",
+    }),
+  },
 });
 
 module.exports = {

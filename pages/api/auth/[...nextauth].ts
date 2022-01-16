@@ -9,7 +9,7 @@ export default NextAuth({
     }),
   ],
   debug: true,
-  secret: "lul",
+  secret: process.env.AUTH_SECRET ?? "local",
   callbacks: {
     session: async ({ session }) => {
       return Promise.resolve(session);

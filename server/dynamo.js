@@ -1,4 +1,5 @@
 const aws = require("aws-sdk");
+const https = require("https");
 
 const client = new aws.DynamoDB.DocumentClient({
   accessKeyId: process.env.ACCESS_KEY,

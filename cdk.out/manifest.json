@@ -1,0 +1,75 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "DynamoStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "DynamoStack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/DynamoStack/Zones/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Zones61CCF6C2",
+            "trace": [
+              "new Table (/home/qwan/frontend/zones/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:477:22)",
+              "new DynamoStack (/home/qwan/frontend/zones/server/cdk-stack.js:9:5)",
+              "Object.<anonymous> (/home/qwan/frontend/zones/bin/cdk.js:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1101:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/DynamoStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/stage.js:103:41)",
+              "process.<anonymous> (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/app.js:53:51)",
+              "Object.onceWrapper (node:events:510:26)",
+              "process.emit (node:events:390:28)"
+            ]
+          }
+        ],
+        "/DynamoStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/stage.js:103:41)",
+              "process.<anonymous> (/home/qwan/frontend/zones/node_modules/@aws-cdk/core/lib/app.js:53:51)",
+              "Object.onceWrapper (node:events:510:26)",
+              "process.emit (node:events:390:28)"
+            ]
+          }
+        ]
+      },
+      "displayName": "DynamoStack"
+    }
+  }
+}

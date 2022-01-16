@@ -15,7 +15,7 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mom's Application
+            For Mom
           </Typography>
           {data?.user?.image && <Avatar src={data.user.image} alt="user" />}
           <Button

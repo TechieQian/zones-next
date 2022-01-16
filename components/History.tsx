@@ -30,7 +30,7 @@ export default function History({
           acs[zone - 1]++;
         } else abs[zone - 1]++;
         return (
-          <div style={{ fontSize: "20px" }}>
+          <div style={{ fontSize: "20px" }} key={zipcode}>
             <IconButton>
               <CloseIcon onClick={() => deleteAmount(abacValue, idx)} />
             </IconButton>
@@ -42,7 +42,7 @@ export default function History({
       {acs.map((ac, i) => {
         if (!ac) return null;
         return (
-          <div style={{ fontSize: "18px" }}>
+          <div style={{ fontSize: "18px" }} key={i + ac}>
             &emsp;Zone {i + 1} AC x{ac} = ${ac * (65 + i * 10)}
           </div>
         );
@@ -50,7 +50,7 @@ export default function History({
       {abs.map((ab, i) => {
         if (!ab) return null;
         return (
-          <div style={{ fontSize: "18px" }}>
+          <div style={{ fontSize: "18px" }} key={i + ab}>
             &emsp;Zone {i + 1} AB x{ab} = ${ab * (85 + i * 10)}
           </div>
         );

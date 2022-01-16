@@ -10,7 +10,6 @@ import { Avatar } from "@mui/material";
 export default function NavBar() {
   const { data } = useSession();
   console.log(data);
-  console.log("callback", window.location.host);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -21,11 +20,7 @@ export default function NavBar() {
           {data?.user?.image && <Avatar src={data.user.image} alt="user" />}
           <Button
             color="inherit"
-            onClick={() =>
-              data?.user
-                ? signOut()
-                : signIn("google", { callbackUrl: window.location.host })
-            }
+            onClick={() => (data?.user ? signOut() : signIn("google"))}
           >
             {data?.user ? "Logout" : "Login"}
           </Button>

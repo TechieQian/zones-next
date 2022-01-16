@@ -21,9 +21,7 @@ export default function NavBar() {
           <Button
             color="inherit"
             onClick={() =>
-              data?.user
-                ? signOut()
-                : signIn("google", { callbackUrl: "http://localhost:3000/" })
+              data?.user ? signOut() : signIn("google", { callbackUrl: "/" })
             }
           >
             {data?.user ? "Logout" : "Login"}

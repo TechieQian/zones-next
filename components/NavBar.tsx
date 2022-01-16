@@ -6,16 +6,19 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Avatar } from "@mui/material";
+import Link from "next/link";
 
 export default function NavBar() {
   const { data } = useSession();
-  console.log(data);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            For Mom
+            <Link href="/">For Mom</Link>
+          </Typography>
+          <Typography textAlign="center">
+            <Link href="/form">输入</Link>
           </Typography>
           {data?.user?.image && <Avatar src={data.user.image} alt="user" />}
           <Button

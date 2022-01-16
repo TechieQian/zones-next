@@ -3,7 +3,6 @@ import dynamoDb from "../../server/dynamo";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { id, zone } = req.body;
-    console.log("submitting", id, zone);
     const item = {
       id,
       zone,

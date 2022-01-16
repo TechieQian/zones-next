@@ -8,7 +8,6 @@ import Modal from "@mui/material/Modal";
 
 import getZone, { defaultZone } from "../utils/calculateZone";
 import History, { HistoryItem } from "../components/History";
-import { signIn, signOut, useSession } from "next-auth/react";
 
 function App() {
   const [radioVal, setRadio] = useState("AC");
@@ -28,11 +27,14 @@ function App() {
   };
 
   useEffect(() => {
-    if (inputVal.length === 5) {
-      const zone = getZone(inputVal);
-      console.log("zone", zone);
-      setCurrentZone(zone);
-    }
+    (async () => {
+      if (inputVal.length === 5) {
+        const zone = await getZone(inputVal);
+        setCurrentZone(zone);
+      } else {
+        setCurrentZone(defaultZone);
+      }
+    })();
   }, [inputVal]);
 
   const reset = function () {
@@ -59,23 +61,6 @@ function App() {
     reset();
   };
 
-  const submitNewZone = (zipcode: string, zone: number) => {
-    fetch("api/zone", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: zipcode, zone }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
   const removeAmount = (val: number, idx: number) => {
     setTotal(totalAmount - val);
     setHistory(history.slice(0, idx).concat(history.slice(idx + 1)));
@@ -97,12 +82,7 @@ function App() {
   };
 
   return (
-    <div
-      className="App"
-      style={{
-        marginTop: "15vh",
-      }}
-    >
+    <div className="app">
       <Input
         inputProps={{
           style: {
@@ -143,13 +123,6 @@ function App() {
       </Button>
       <Button onClick={onClear} variant="contained" color="error">
         清除
-      </Button>
-      <Button
-        onClick={() => submitNewZone("111", 1)}
-        variant="contained"
-        color="error"
-      >
-        Test
       </Button>
       <section style={{ margin: "15px 0", fontSize: "40px" }}>
         <span>${totalAmount}</span>

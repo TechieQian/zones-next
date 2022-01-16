@@ -1,12 +1,10 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 body {
   margin: 0;
 }
 
+.app {
+  text-align: center;
+}
 .MuiFormGroup-root {
   justify-content: center;
 }
@@ -17,4 +15,10 @@ body {
 
 .MuiTypography-body1 {
   font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
 }

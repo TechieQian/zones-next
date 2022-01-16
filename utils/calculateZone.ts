@@ -16,29 +16,34 @@ const getZone = async function (val: string): Promise<ZoneDetail> {
   if (val.length < 5) {
     return defaultZone;
   }
-  let zoneResponse = await fetch(`/api/zone?id=${val}`).then((res) =>
-    res.json()
-  );
-  let zone = +zoneResponse.zone;
-  if (zone === 1) {
-    return {
-      zone: 1,
-      ac: 65,
-      ab: 85,
-    };
-  } else if (zone === 2) {
-    return {
-      zone: 2,
-      ac: 75,
-      ab: 95,
-    };
-  } else if (zone === 3) {
-    return {
-      zone: 3,
-      ac: 85,
-      ab: 105,
-    };
-  } else return defaultZone;
+  try {
+    let zoneResponse = await fetch(`/api/zone?id=${val}`).then((res) =>
+      res.json()
+    );
+    let zone = +zoneResponse.zone;
+    if (zone === 1) {
+      return {
+        zone: 1,
+        ac: 65,
+        ab: 85,
+      };
+    } else if (zone === 2) {
+      return {
+        zone: 2,
+        ac: 75,
+        ab: 95,
+      };
+    } else if (zone === 3) {
+      return {
+        zone: 3,
+        ac: 85,
+        ab: 105,
+      };
+    } else return defaultZone;
+  } catch (ex) {
+    console.error("Error getting zone", ex);
+    return defaultZone;
+  }
 };
 
 export default getZone;

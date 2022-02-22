@@ -24,20 +24,20 @@ const getZone = async function (val: string): Promise<ZoneDetail> {
     if (zone === 1) {
       return {
         zone: 1,
-        ac: 65,
-        ab: 85,
+        ac: 70,
+        ab: 90,
       };
     } else if (zone === 2) {
       return {
         zone: 2,
-        ac: 75,
-        ab: 95,
+        ac: 80,
+        ab: 100,
       };
     } else if (zone === 3) {
       return {
         zone: 3,
-        ac: 85,
-        ab: 105,
+        ac: 90,
+        ab: 110,
       };
     } else return defaultZone;
   } catch (ex) {
